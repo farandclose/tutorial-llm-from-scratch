@@ -7,6 +7,7 @@ Preparing data for training a Large Language Model (LLM) involves several key st
 3. **📖 Generate dictionary**: Create a dictionary of unique tokens, sorted and ranked, to be used by the model during training.
 """
 
+
 sl_tokenization_post_text = """
 In the next section, we will learn BytePairEncoding (BPE) tokenization. This is the most common tokenization technique and was used to train the models such as GPT-3 released by OpenAI.
 """
