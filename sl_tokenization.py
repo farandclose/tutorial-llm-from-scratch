@@ -1,6 +1,7 @@
 import streamlit as st
 import re
-from commentary import COMMENTARY_TEXT
+from commentary import sl_tokenization_pre_text
+from commentary import sl_tokenization_post_text
 
 def read_file(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
@@ -45,7 +46,7 @@ def main():
     st.markdown(
         f"""
         <div style="background-color: #F7D3C6; padding: 10px; border-radius: 5px;">
-            {COMMENTARY_TEXT}
+            {sl_tokenization_pre_text}
         """,
         unsafe_allow_html=True
     )
@@ -98,6 +99,36 @@ def main():
                     formatted_ranked_tokens = ' || '.join(ranked_tokens)
                     dictionary_label = "Dictionary Length - "+str(len(ranked_tokens))
                     st.text_area(dictionary_label, formatted_ranked_tokens, height=200)
+
+
+    # Custom CSS for title and spacing
+    st.markdown(
+        """
+        <style>
+        .title {
+            font-size: 24px;
+        }
+        .spacer {
+            margin-top: 20px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    
+    # Commentary block with yellowish background color
+    st.markdown(
+        f"""
+        <div style="background-color: #C5E3FD; padding: 10px; border-radius: 5px;">
+            {sl_tokenization_post_text}
+        """,
+        unsafe_allow_html=True
+    )
 
 if __name__ == "__main__":
     main()
